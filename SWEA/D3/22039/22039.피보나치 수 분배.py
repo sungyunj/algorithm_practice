@@ -20,3 +20,33 @@
 # 1                     impossible
 # 2                     BA
 # 3                     BBA       
+
+
+import sys
+sys.stdin = open("/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/22039/1_sample_input.txt","r")
+
+
+def solve(n):
+	if n % 3 == 1:
+		return "impossible"
+
+	result = [""] * n
+
+	if n % 3 == 2:
+		result[0], result[1] = "B", "A"
+		start = 2
+	else:
+		result[0], result[1], result[2] = "B", "B", "A"
+		start = 3
+
+	for index in range(start, n, 3):
+		result[index] = "A"
+		result[index + 1] = "A"
+		result[index + 2] = "B"
+
+	return "".join(result)
+
+
+t = int(input())
+for _ in range(t):
+	print(solve(int(input())))
