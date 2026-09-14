@@ -14,3 +14,37 @@
 # 각 테스트 케이스마다, 한 줄에 하나씩 x나 y 둘 중 하나 이상에 저장된 값이 N 초과가 되게 하기 위해 “x += y”, “y += x” 연산을 최소 몇 번 수행해야 하는지 출력한다.
 
  
+import sys
+sys.stdin = open("/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/21425/1_sample_input.txt","r")  
+
+def solve():
+    # 전체 입력을 한 번에 읽어와 빠르게 처리
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    T = int(input_data[0])
+    idx = 1
+    
+    out = []
+    for _ in range(T):
+        A = int(input_data[idx])
+        B = int(input_data[idx + 1])
+        N = int(input_data[idx + 2])
+        idx += 3
+        
+        count = 0
+        # A 또는 B가 N을 초과할 때까지 반복
+        while A <= N and B <= N:
+            if A < B:
+                A += B
+            else:
+                B += A
+            count += 1
+            
+        out.append(str(count))
+        
+    print('\n'.join(out))
+
+if __name__ == '__main__':
+    solve()
