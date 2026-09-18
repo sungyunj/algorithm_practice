@@ -16,3 +16,31 @@
 
 # 출력
 # 각 테스트 케이스마다, A를 정렬하기 위해 사용해야 하는 연산의 최소 횟수를 한 줄에 하나씩 출력한다.
+
+
+import sys
+sys.stdin = open("/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/21131/1_sample_input.txt","r")  
+
+T = int(input())
+answers = []
+
+for _ in range(T):
+    N = int(input())
+    first_row = list(map(int, input().split()))
+
+    # 정렬 가능한 행렬이므로 첫 번째 행만으로 전치 여부를 알 수 있다.
+    for _ in range(N - 1):
+        input()
+
+    flipped = False
+    count = 0
+
+    for x in range(N, 1, -1):
+        wrong = first_row[x - 1] != x
+        if wrong != flipped:
+            count += 1
+            flipped = not flipped
+
+    answers.append(str(count))
+
+print('\n'.join(answers))
