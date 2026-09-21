@@ -16,3 +16,20 @@
 
 # 출력
 # 각 테스트 케이스마다 S를 E로 만드는 것이 가능하면 “Yes”를, 아니면 “No”를 출력한다.
+
+
+import sys
+sys.stdin = open("/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/20955/sample_input.txt","r")
+T = int(input())
+
+for _ in range(T):
+    S = input().strip()
+    E = input().strip()
+
+    while len(E) > len(S):
+        if E[-1] == 'X':
+            E = E[:-1]
+        else:
+            E = E[:-1][::-1]
+
+    print("Yes" if E == S else "No")
