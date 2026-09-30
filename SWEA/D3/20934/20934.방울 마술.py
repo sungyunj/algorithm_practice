@@ -15,3 +15,25 @@
 # 가운데라면 1,
 # 맨 오른쪽이라면 2
 # ...를 한 줄에 하나씩 출력한다.
+
+
+import sys
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/20934/sample_input.txt','r')
+
+T = int(input())
+
+for tc in range(1, T + 1):
+    S, K = input().split()
+    K = int(K)
+    start = S.index('o')
+
+    if K == 0:
+        answer = start
+    elif start == 1:
+        # 가운데 출발: 홀수 번 울리면 양 끝, 짝수 번 울리면 가운데
+        answer = 0 if K % 2 == 1 else 1
+    else:
+        # 양 끝 출발: 홀수 번 울리면 가운데, 짝수 번 울리면 양 끝
+        answer = 1 if K % 2 == 1 else 0
+
+    print(f'#{tc} {answer}')
