@@ -12,3 +12,17 @@
 
 # 출력
 # 각 테스트 케이스마다, 차이의 최솟값을 출력한다.
+
+
+import sys
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/20728/sin.txt','r')
+T = int(input())
+
+for tc in range(1, T + 1):
+    N, K = map(int, input().split())
+    candies = sorted(map(int, input().split()))
+
+    # 정렬된 주머니에서 연속한 K개의 최댓값과 최솟값 차이를 비교한다.
+    answer = min(candies[i + K - 1] - candies[i] for i in range(N - K + 1))
+
+    print(f'#{tc} {answer}')
