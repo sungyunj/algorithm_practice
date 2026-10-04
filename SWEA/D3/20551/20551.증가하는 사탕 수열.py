@@ -15,3 +15,22 @@
 # 각 테스트 케이스마다,
 # 세현이가 사탕을 먹어치워서 조건을 만족시킬 수 없다면 -1을 출력한다.
 # 만족시킬 수 있다면, 최소 몇 개를 먹어야 하는지 출력한다.
+
+
+import sys
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/20551/sample_input.txt','r')
+T = int(input())
+
+for tc in range(1, T + 1):
+    A, B, C = map(int, input().split())
+
+    # 세 상자에 최소 1, 2, 3개를 남길 수 있어야 함.
+    if B < 2 or C < 3:
+        answer = -1
+    else:
+        # 오른쪽부터 가능한 한 많은 사탕을 남김.
+        new_B = min(B, C - 1)
+        new_A = min(A, new_B - 1)
+        answer = (A - new_A) + (B - new_B)
+
+    print(f'#{tc} {answer}')
