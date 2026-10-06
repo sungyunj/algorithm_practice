@@ -13,3 +13,23 @@
 
 # 출력
 # 각 테스트 케이스마다, S가 회문의 회문이면 YES를, 그렇지 않다면 NO를 출력한다.
+
+
+import sys
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/20019/sample_input.txt', 'r')
+T = int(input())
+
+for tc in range(1, T + 1):
+    S = input().strip()
+    mid = len(S) // 2
+
+    # 가운데 글자를 제외한 왼쪽과 오른쪽 문자열
+    left = S[:mid]
+    right = S[mid + 1:]
+
+    if S == S[::-1] and left == left[::-1] and right == right[::-1]:
+        answer = 'YES'
+    else:
+        answer = 'NO'
+
+    print(f'#{tc} {answer}')
