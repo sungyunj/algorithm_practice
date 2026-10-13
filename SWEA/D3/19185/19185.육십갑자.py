@@ -24,3 +24,23 @@
 
 # [출력]
 # 각 테스트 케이스 마다 한 줄씩, 이름에 해당하는 Q개의 문자열을 입력 순서대로 출력하라.
+
+
+import sys
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/19185/sample_input.txt', 'r')
+TC = int(input())
+
+for tc in range(1, TC + 1):
+    N, M = map(int, input().split())
+    S = input().split()
+    T = input().split()
+    Q = int(input())
+
+    answers = []
+    for _ in range(Q):
+        Y = int(input())
+        # 1년이 인덱스 0에 해당하므로 1을 빼고 나머지를 구한다.
+        name = S[(Y - 1) % N] + T[(Y - 1) % M]
+        answers.append(name)
+
+    print(f'#{tc}', *answers)
