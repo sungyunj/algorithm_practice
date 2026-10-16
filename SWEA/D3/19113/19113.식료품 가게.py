@@ -17,5 +17,29 @@
 # 두 번째 줄에는 프린터에서 인쇄한 2N개의 정수 Pi가 오름차순으로 주어진다. (1 ≤ Pi ≤ 10^9)
 
 
-# [출력]
+# [출력
 # 각 테스트 케이스 마다 한 줄씩, 물건의 할인가격에 해당하는 N개의 정수를 오름차순으로 정렬하여 출력하라.
+
+import sys
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/19113/sample_input.txt','r')    
+from collections import Counter
+
+
+TC = int(input())
+
+for tc in range(1, TC + 1):
+    N = int(input())
+    prices = list(map(int, input().split()))
+    remaining = Counter(prices)
+    answers = []
+
+    for price in prices:
+        if remaining[price] == 0:
+            continue
+
+        # 아직 사용하지 않은 가장 작은 가격은 반드시 할인가이다.
+        answers.append(price)
+        remaining[price] -= 1
+        remaining[price * 4 // 3] -= 1
+
+    print(f'#{tc}', *answers)
