@@ -14,3 +14,30 @@
 
 # [출력]
 # 각 테스트 케이스 마다 한 줄씩 최대화된 팰린드롬의 길이를 출력하라.
+
+
+import sys
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/19003/sample_input.txt','r')
+TC = int(input())
+
+for tc in range(1, TC + 1):
+    N, M = map(int, input().split())
+    words = {input().strip() for _ in range(N)}
+    pair_count = 0
+    has_center = False
+
+    for word in words:
+        reversed_word = word[::-1]
+
+        if word == reversed_word:
+            # 서로 다른 문자열이므로 가운데에 최대 하나만 사용할 수 있다.
+            has_center = True
+        elif reversed_word in words and word < reversed_word:
+            # 사전순으로 작은 쪽에서만 세어 같은 쌍의 중복 계산을 막는다.
+            pair_count += 1
+
+    answer = pair_count * 2 * M
+    if has_center:
+        answer += M
+
+    print(f'#{tc} {answer}')
