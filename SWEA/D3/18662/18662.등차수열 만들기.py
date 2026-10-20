@@ -14,3 +14,16 @@
 # 각 테스트 케이스마다 한 줄에 하나씩, a,b,c가 등차수열을 이루도록 할 수 있는 가장 작은 x의 값을 출력한다. 
 # 참값과의 절대 오차 또는 상대 오차가 10-9이하이면 정답 처리된다.
 # x의 값이 정수가 아닐 수 있음에 유의하라. (x값은 소수점 1자리까지 출력한다.)
+
+
+import sys
+sys.stdin = open("/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/18662/sample_input.txt", 'r')
+T = int(input())
+
+for tc in range(1, T + 1):
+    a, b, c = map(int, input().split())
+
+    # 가운데 값을 양 끝의 평균으로 바꾸면 변경량이 최소
+    answer = abs(a + c - 2 * b) / 2
+
+    print(f'#{tc} {answer:.1f}')
