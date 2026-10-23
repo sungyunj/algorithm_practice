@@ -11,3 +11,17 @@
 
 # [출력]
 # 각 테스트 케이스마다 한 줄에 하나씩, 최종적으로 만들 수 있는 최소 결함의 수를 출력하라.
+
+
+import sys
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/17937/sample_input.txt','r')
+
+T = int(input())
+
+for tc in range(1, T + 1):
+    A, B = map(int, input().split())
+
+    # 서로 다른 양 끝 사이에는 연속한 두 수가 포함, 최대공약수는 1.
+    answer = A if A == B else 1
+
+    print(f'#{tc} {answer}')
