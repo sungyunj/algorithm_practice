@@ -25,3 +25,21 @@
 # 각 테스트 케이스마다 한 줄에 하나씩, 조작 횟수를 출력한다. 
 #     최대값을 같게 할 수 있다면  의조작을 통해 A와 B-   
 #     - 조작을 통해 A와 B의 값을 같게 할 수 없다면 ‘-1’(따옴표 제외)을 출력한다.
+
+
+import sys
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/17642/sample_input.txt','r')
+T = int(input())
+
+for tc in range(1, T + 1):
+    A, B = map(int, input().split())
+    diff = B - A
+
+    if diff < 0 or diff == 1:
+        answer = -1
+    else:
+        # 짝수는 2만 사용, 홀수는 3을 한 번 사용한 뒤 2로 채움
+        # 이미 같다면 diff가 0이므로 조작 횟수도 0
+        answer = diff // 2
+
+    print(f'#{tc} {answer}')
