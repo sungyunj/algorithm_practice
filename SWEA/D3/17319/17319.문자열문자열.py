@@ -10,3 +10,22 @@
  
 # [출력]
 # 각 테스트 케이스 마다 한 줄씩, 재현이가 만드는 게 가능한 문자열이라면 “Yes”, 불가능한 문자열이라면 “No” 를 출력하라.
+
+
+import sys
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/17319/sample_input.txt.txt', 'r')
+
+input = sys.stdin.readline
+T = int(input())
+
+for tc in range(1, T + 1):
+	N = int(input())
+	S = input().strip()
+	half = N // 2
+
+	if N % 2 == 0 and S[:half] == S[half:]:
+		answer = 'Yes'
+	else:
+		answer = 'No'
+
+	print(f'#{tc} {answer}')
