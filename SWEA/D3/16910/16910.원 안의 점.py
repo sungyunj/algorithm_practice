@@ -9,3 +9,21 @@
 
 # [출력]
 # 각 테스트 케이스마다 반지름이 N인 원 안에 포함되는 격자점의 개수를 출력한다.
+
+
+import sys
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/16910/sample_input.txt', 'r')
+
+T = int(input())
+
+for tc in range(1, T + 1):
+    N = int(input())
+    answer = 0
+
+    # 원을 둘러싼 정사각형의 모든 정수 좌표를 확인
+    for x in range(-N, N + 1):
+        for y in range(-N, N + 1):
+            if x * x + y * y <= N * N:
+                answer += 1
+
+    print(f'#{tc} {answer}')
