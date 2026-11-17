@@ -14,3 +14,23 @@
 
 # [출력]
 # 각 테스트 케이스 마다 한 줄씩 문제의 정답을 출력하라.
+
+import sys
+from math import isqrt
+from pathlib import Path
+
+sys.stdin = open('/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/16800/sample_input.txt', 'r')
+
+T = int(input())
+
+for tc in range(1, T + 1):
+    N = int(input())
+
+    # 제곱근에서 내려가며 찾은 첫 약수가 가장 가까운 약수 쌍을 만든다.
+    for i in range(isqrt(N), 0, -1):
+        if N % i == 0:
+            j = N // i
+            answer = i + j - 2
+            break
+
+    print(f'#{tc} {answer}')
