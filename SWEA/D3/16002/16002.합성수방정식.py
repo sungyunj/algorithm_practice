@@ -15,3 +15,11 @@
 # [출력]
 # 각 테스트 케이스마다, x-y=N 을 만족시키는 두 합성수 x와 y를 공백 하나를 사이로 두고 출력한다. 2<= x, y <= 10^9 를 만족해야 한다.
 
+import sys
+sys.stdin = open("/Users/tjddbsj/Desktop/github/algorithm/algorithm/SWEA/D3/16002/1_input_sample.txt","r")  
+
+T = int(input())
+
+for tc in range(1, T + 1):
+    N = int(input())
+    print(f"#{tc} {9 * N} {8 * N}")
